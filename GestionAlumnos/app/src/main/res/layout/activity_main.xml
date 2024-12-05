@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    style="@style/layouts">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_main_activity"
+        style="@style/text_title"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/student_btn"
+            style="@style/btn_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/student_btn"
+            />
+
+        <Button
+            android:id="@+id/add_student_btn"
+            style="@style/btn_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_student_btn"
+            android:layout_marginTop="48dp"/>
+
+
+
+        <Button
+            android:id="@+id/search_student_btn"
+            style="@style/btn_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search__student_btn"
+            android:layout_marginTop="48dp"/>
+    </LinearLayout>
+
+</LinearLayout>
