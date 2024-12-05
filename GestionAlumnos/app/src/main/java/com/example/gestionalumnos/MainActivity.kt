@@ -21,9 +21,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-    initAtributes()
+        initAtributes()
+        setButtonsListeners()
 
 
+    }
+
+    private fun setButtonsListeners() {
+        studentBtn.setOnClickListener { goAnotherActivity(this,StudentsActivity::class.java) }
+        //add more activities...
     }
 
     private fun initAtributes() {
@@ -31,4 +37,8 @@ class MainActivity : AppCompatActivity() {
         addStudentBtn=findViewById(R.id.add_student_btn)
         searchStudentBtn=findViewById(R.id.search_student_btn)
     }
+
+
+
+
 }
