@@ -1,12 +1,19 @@
 package com.example.gestionalumnos
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.widget.GridLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class StudentsActivity : AppCompatActivity() {
+    //Atributes
+    private lateinit var gridStudents:GridLayout
+    private  lateinit var modelStudent:ModelStudent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,5 +23,64 @@ class StudentsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        initAtributes()
+        loadData()
+    }
+
+    private fun loadData() {
+        loadTitleGrid()
+
+
+       loadDataStudentsGrid()//load students data
+    }
+
+    private fun loadDataStudentsGrid() {
+        modelStudent.getAllStudents().forEachIndexed { rowIndex, row ->
+            row.forEachIndexed { colIndex, cell ->
+                val textView = TextView(this).apply {
+                    text = cell
+                    textSize = 16f
+                    setPadding(16, 25, 16, 25)
+                    setTextColor(Color.WHITE)
+                    layoutParams = GridLayout.LayoutParams().apply {
+                        rowSpec = GridLayout.spec(rowIndex + 1) // Rows start at 1
+                        columnSpec = GridLayout.spec(colIndex)
+                    }
+                }
+
+                
+
+
+                gridStudents.addView(textView)
+            }
+        }
+    }
+
+    //remember remove records
+    private fun loadTitleGrid() {//Load the headers columns
+        modelStudent.addStudentData("12345678", "Smith", "John", "8.5",)
+        modelStudent.addStudentData("12345678", "Smith", "John", "8.5",)
+
+        // Add titles
+        modelStudent.titleGrid.forEachIndexed { index, title ->
+            val textView = TextView(this).apply {
+                text = title
+                textSize = 18f
+                setPadding(16, 16, 16, 16)
+                setTextColor(Color.WHITE)
+                layoutParams = GridLayout.LayoutParams().apply {
+                    rowSpec = GridLayout.spec(0) // First row for titles
+                    columnSpec = GridLayout.spec(index)
+                }
+            }
+            gridStudents.addView(textView)
+        }
+    }
+
+    private fun initAtributes() {
+        gridStudents=findViewById(R.id.gridStudents)
+        modelStudent=ModelStudent()
+
     }
 }

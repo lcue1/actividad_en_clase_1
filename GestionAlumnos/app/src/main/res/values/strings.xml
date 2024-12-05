@@ -3,11 +3,13 @@
 
     <!-- First activity -->
     <string name="title_main_activity">Gestion de alumnos</string>
-    <string name="student_btn">Estudiantes</string>
+    <string name="student_btn">Alumnos</string>
     <string name="add_student_btn">Agregar</string>
     <string name="del_student_btn">Eliminar</string>
     <string name="update_student_btn">Modificar</string>
     <string name="search__student_btn">Buscar</string>
 
+    <!-- Students activity -->
+    <string name="title_stududents_activityy">Alumnos</string>
 
 </resources>
