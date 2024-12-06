@@ -2,7 +2,7 @@ package com.example.gestionalumnos
 
 class ModelStudent {
 
-    val titleGrid = listOf("DNI", "APELLIDO", "NOMBRE", "NOTA", "CALIFICACION")
+    val titleGrid = listOf("DNI", "APELLIDO", "NOMBRE", "NOTA", "CALF")
     private val studentsData: MutableList<List<String>> = mutableListOf()
 
     // Add a student

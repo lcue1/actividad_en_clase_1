@@ -35,31 +35,9 @@ class StudentsActivity : AppCompatActivity() {
        loadDataStudentsGrid()//load students data
     }
 
-    private fun loadDataStudentsGrid() {
-        modelStudent.getAllStudents().forEachIndexed { rowIndex, row ->
-            row.forEachIndexed { colIndex, cell ->
-                val textView = TextView(this).apply {
-                    text = cell
-                    textSize = 16f
-                    setPadding(16, 25, 16, 25)
-                    setTextColor(Color.WHITE)
-                    layoutParams = GridLayout.LayoutParams().apply {
-                        rowSpec = GridLayout.spec(rowIndex + 1) // Rows start at 1
-                        columnSpec = GridLayout.spec(colIndex)
-                    }
-                }
-
-                
-
-
-                gridStudents.addView(textView)
-            }
-        }
-    }
-
     //remember remove records
     private fun loadTitleGrid() {//Load the headers columns
-        modelStudent.addStudentData("12345678", "Smith", "John", "8.5",)
+        modelStudent.addStudentData("12345678", "luis", "John", "8.5",)
         modelStudent.addStudentData("12345678", "Smith", "John", "8.5",)
 
         // Add titles
@@ -67,7 +45,7 @@ class StudentsActivity : AppCompatActivity() {
             val textView = TextView(this).apply {
                 text = title
                 textSize = 18f
-                setPadding(16, 16, 16, 16)
+                setPadding(10, 16, 10, 16)
                 setTextColor(Color.WHITE)
                 layoutParams = GridLayout.LayoutParams().apply {
                     rowSpec = GridLayout.spec(0) // First row for titles
@@ -77,6 +55,34 @@ class StudentsActivity : AppCompatActivity() {
             gridStudents.addView(textView)
         }
     }
+
+
+    private fun loadDataStudentsGrid() {
+        modelStudent.getAllStudents().forEachIndexed { rowIndex, row ->
+            row.forEachIndexed { colIndex, cell ->
+                val textView = TextView(this).apply {
+                    text = cell
+                    textSize = 16f
+                    setPadding(10, 25, 10, 25)
+                    setTextColor(Color.WHITE)
+                    layoutParams = GridLayout.LayoutParams().apply {
+                        rowSpec = GridLayout.spec(rowIndex + 1) // Rows start at 1
+                        columnSpec = GridLayout.spec(colIndex)
+                    }
+                }
+
+                textView.setOnClickListener{
+                    goAnotherActivity(this,EditDeleteStudentActivity::class.java)
+                }
+
+
+                gridStudents.addView(textView)
+            }
+        }
+    }
+
+
+
 
     private fun initAtributes() {
         gridStudents=findViewById(R.id.gridStudents)
