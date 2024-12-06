@@ -5,7 +5,7 @@
     </style>
     <!-- Text -->
     <style name="text_normal">
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/text_color_1</item>
         <item name="android:textSize">@dimen/text_size_normal</item>
     </style>
     <style name="text_title" parent="text_normal">
@@ -17,7 +17,16 @@
     <style name="btn_primary">
         <item name="android:textSize">@dimen/btn_text_size</item>
         <item name="android:backgroundTint">@color/bg_btn</item>
-        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColor">@color/text_color_1</item>
+    </style>
+
+
+    <!-- TextFields -->
+
+    <style name="edit_text_primary">
+        <item name="android:textSize">@dimen/edit_text_size</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/text_color_2</item>
     </style>
 
 

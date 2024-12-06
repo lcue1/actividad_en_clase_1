@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setButtonsListeners() {
         studentBtn.setOnClickListener { goAnotherActivity(this,StudentsActivity::class.java) }
+        addStudentBtn.setOnClickListener { goAnotherActivity(this,EditDeleteStudentActivity::class.java) }
         //add more activities...
     }
 

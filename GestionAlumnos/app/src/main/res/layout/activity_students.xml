@@ -10,17 +10,33 @@
     style="@style/layouts"
 
     >
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_stududents_activityy"
-        tools:ignore="MissingConstraints"
-        style="@style/text_title"
-        android:layout_marginStart="30dp"
-        />
+        android:orientation="horizontal">
+
+        <!-- TextView aligned to the left -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_stududents_activityy"
+            style="@style/text_title"
+            android:layout_marginStart="30dp"
+            android:layout_weight="1" />
+
+        <!-- Button aligned to the right -->
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_btn"
+            android:layout_marginEnd="30dp"
+            style="@style/btn_primary"
+            />
+    </LinearLayout>
     <View
         android:layout_width="1in"
-        android:layout_height="5dp"
+        android:layout_height="2dp"
         android:background="@color/white"
         tools:ignore="InOrMmUsage" />
     <GridLayout

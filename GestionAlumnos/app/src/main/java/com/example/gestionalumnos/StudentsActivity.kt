@@ -3,15 +3,18 @@ package com.example.gestionalumnos
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.util.ArrayList
 
 class StudentsActivity : AppCompatActivity() {
     //Atributes
+    private lateinit var backBtn:Button
     private lateinit var gridStudents:GridLayout
     private  lateinit var modelStudent:ModelStudent
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +75,11 @@ class StudentsActivity : AppCompatActivity() {
                 }
 
                 textView.setOnClickListener{
-                    goAnotherActivity(this,EditDeleteStudentActivity::class.java)
+                    val studentData = Bundle().apply {
+                        putStringArrayList("data_student", ArrayList(row))
+                    }
+                    goAnotherActivity(this,EditDeleteStudentActivity::class.java, studentData)
+
                 }
 
 
@@ -85,6 +92,8 @@ class StudentsActivity : AppCompatActivity() {
 
 
     private fun initAtributes() {
+        backBtn=findViewById(R.id.back_btn)
+        backBtn.setOnClickListener { goAnotherActivity(this,MainActivity::class.java) }
         gridStudents=findViewById(R.id.gridStudents)
         modelStudent=ModelStudent()
 

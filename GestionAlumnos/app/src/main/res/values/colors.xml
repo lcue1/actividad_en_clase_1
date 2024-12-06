@@ -7,6 +7,9 @@
     <!-- App -->
     <color name="app_bg">#000640</color>
     <color name="bg_btn">#ED8334</color>
-    <color name="text_color">#FFFFFF</color>
+    <color name="text_color_1">#FFFFFF</color>
+    <color name="text_color_2">#ED8334</color>
+    <color name="red">#FF6C63</color>
+
 
 </resources>
