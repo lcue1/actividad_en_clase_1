@@ -1,6 +1,7 @@
 package com.example.gestionalumnos
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var studentBtn:Button
     private lateinit var addStudentBtn:Button
     private lateinit var searchStudentBtn:Button
+    val modelStudent=ModelStudent()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,14 +24,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         initAtributes()
-        setButtonsListeners()
+        setButtonsListeners()// setonclickListener to buttons
 
 
     }
 
     private fun setButtonsListeners() {
         studentBtn.setOnClickListener { goAnotherActivity(this,StudentsActivity::class.java) }
-        addStudentBtn.setOnClickListener { goAnotherActivity(this,EditDeleteStudentActivity::class.java) }
+        addStudentBtn.setOnClickListener {
+
+          //  val save = modelStudent.addStudentData(this,"12345678", "Smith", "John", "6",)
+            goAnotherActivity(this,EditDeleteStudentActivity::class.java)
+
+        }
+
         //add more activities...
     }
 

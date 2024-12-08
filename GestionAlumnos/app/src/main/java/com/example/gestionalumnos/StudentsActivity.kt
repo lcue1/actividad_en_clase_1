@@ -1,8 +1,8 @@
 package com.example.gestionalumnos
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
@@ -10,11 +10,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 class StudentsActivity : AppCompatActivity() {
     //Atributes
     private lateinit var backBtn:Button
+    private lateinit var addBtn:Button
     private lateinit var gridStudents:GridLayout
     private  lateinit var modelStudent:ModelStudent
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +30,20 @@ class StudentsActivity : AppCompatActivity() {
 
         initAtributes()
         loadData()
+        addBtn.setOnClickListener {
+            goAnotherActivity(this,EditDeleteStudentActivity::class.java)
+        }
+
+
     }
 
     private fun loadData() {
         loadTitleGrid()
-
-
        loadDataStudentsGrid()//load students data
     }
 
-    //remember remove records
+    //set title to each column in grid layout
     private fun loadTitleGrid() {//Load the headers columns
-        modelStudent.addStudentData("12345678", "luis", "John", "8.5",)
-        modelStudent.addStudentData("12345678", "Smith", "John", "8.5",)
-
-        // Add titles
         modelStudent.titleGrid.forEachIndexed { index, title ->
             val textView = TextView(this).apply {
                 text = title
@@ -59,9 +59,9 @@ class StudentsActivity : AppCompatActivity() {
         }
     }
 
-
+//Load data in  grid layout and set listener to each row
     private fun loadDataStudentsGrid() {
-        modelStudent.getAllStudents().forEachIndexed { rowIndex, row ->
+        modelStudent.getDataFromFile(this).forEachIndexed { rowIndex, row ->
             row.forEachIndexed { colIndex, cell ->
                 val textView = TextView(this).apply {
                     text = cell
@@ -75,24 +75,22 @@ class StudentsActivity : AppCompatActivity() {
                 }
 
                 textView.setOnClickListener{
-                    val studentData = Bundle().apply {
-                        putStringArrayList("data_student", ArrayList(row))
-                    }
-                    goAnotherActivity(this,EditDeleteStudentActivity::class.java, studentData)
-
+                    val intent = Intent(this, EditDeleteStudentActivity::class.java)
+                    intent.putExtra("model_student", modelStudent)
+                    intent.putExtra("student_data",ArrayList(row))
+                    startActivity(intent)
                 }
 
 
                 gridStudents.addView(textView)
+
             }
         }
     }
 
-
-
-
     private fun initAtributes() {
         backBtn=findViewById(R.id.back_btn)
+        addBtn=findViewById(R.id.addBBtn)
         backBtn.setOnClickListener { goAnotherActivity(this,MainActivity::class.java) }
         gridStudents=findViewById(R.id.gridStudents)
         modelStudent=ModelStudent()

@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:text="@string/student_btn"
             />
-
         <Button
             android:id="@+id/add_student_btn"
             style="@style/btn_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_student_btn"
-            android:layout_marginTop="48dp"/>
+            android:layout_marginTop="48dp"
+            />
 
 
 

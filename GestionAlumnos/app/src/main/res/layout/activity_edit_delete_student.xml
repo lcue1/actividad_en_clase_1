@@ -73,7 +73,10 @@
             style="@style/edit_text_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/dni_hint" />
+            android:autofillHints="DNI"
+            android:inputType="number"
+            android:hint="@string/dni_hint"
+            />
 
         <EditText
             android:id="@+id/l_name_edit_text"
@@ -97,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:inputType="numberDecimal"
             android:hint="@string/grade_hint" />
     </LinearLayout>
 

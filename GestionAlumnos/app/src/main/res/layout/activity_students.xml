@@ -1,52 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentsActivity"
-    android:orientation="vertical"
-    style="@style/layouts"
+    tools:context=".StudentsActivity">
 
-    >
+    <!-- Main content in a LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!-- TextView aligned to the left -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/title_stududents_activityy"
-            style="@style/text_title"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1" />
-
-        <!-- Button aligned to the right -->
-        <Button
-            android:id="@+id/back_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/back_btn"
-            android:layout_marginEnd="30dp"
-            style="@style/btn_primary"
-            />
-    </LinearLayout>
-    <View
-        android:layout_width="1in"
-        android:layout_height="2dp"
-        android:background="@color/white"
-        tools:ignore="InOrMmUsage" />
-    <GridLayout
-        android:id="@+id/gridStudents"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnCount="5"
-        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        style="@style/layouts">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        />
+            <!-- TextView aligned to the left -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_stududents_activityy"
+                style="@style/text_title"
+                android:layout_marginStart="30dp"
+                android:layout_weight="1" />
 
-</LinearLayout>
+            <!-- Button aligned to the right -->
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back_btn"
+                android:layout_marginEnd="30dp"
+                style="@style/btn_primary"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1in"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            tools:ignore="InOrMmUsage" />
+
+        <GridLayout
+            android:id="@+id/gridStudents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="5"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+    <!-- Button fixed at the bottom-right corner -->
+    <Button
+        android:id="@+id/addBBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_student_btn"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        style="@style/btn_primary" />
+
+</FrameLayout>
