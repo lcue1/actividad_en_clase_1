@@ -172,4 +172,22 @@ data class ModelStudent(
         }
     }
 
+    fun deleteStudent(context: Context, dni:String): Boolean {
+
+        return try {
+            studentsData.clear()
+            studentsData = getDataFromFile(context)
+
+            val newStudents = studentsData.filter { it[0] != dni }
+            val file = File(context.filesDir, "students.txt")
+            val lines = newStudents.joinToString("\n") { it.joinToString(",") }
+            file.writeText(lines)
+            true
+        } catch (e: Exception) {
+            Log.d("Delete error", "Error: ${e}")
+            false
+        }
+
+    }
+
 }

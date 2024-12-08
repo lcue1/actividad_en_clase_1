@@ -1,13 +1,9 @@
 package com.example.gestionalumnos
 
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
-import android.view.Display.Mode
 import android.widget.Button
 import android.widget.EditText
-import android.widget.GridLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -17,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.collections.ArrayList
-import kotlin.math.log
 
 class EditDeleteStudentActivity : AppCompatActivity() {
     //Atributes
@@ -65,6 +60,7 @@ class EditDeleteStudentActivity : AppCompatActivity() {
             Log.d("datastudent",studentData.toString())
             title = "Editar"
             dniEditText.setText(studentData!![0].toString())
+            dniEditText.isEnabled = false
             lNameEditText.setText(studentData!![1].toString())
             fNameEditText.setText(studentData!![2].toString())
             gradeEditText.setText(studentData!![3].toString())
@@ -85,13 +81,26 @@ class EditDeleteStudentActivity : AppCompatActivity() {
     private fun setButtonsListeners() {
         backBtn.setOnClickListener { goAnotherActivity(this, StudentsActivity::class.java) }
         addStudentBtn?.setOnClickListener {
-            val save = modelStudent.addStudentData(this,dniEditText.text.toString(), lNameEditText.text.toString(), fNameEditText.text.toString(),gradeEditText.text.toString(),)
+            val add = modelStudent.addStudentData(this,dniEditText.text.toString(), lNameEditText.text.toString(), fNameEditText.text.toString(),gradeEditText.text.toString(),)
+            if(add){
+                Toast.makeText(this, "SAlumno guardado eitosamente",Toast.LENGTH_LONG).show()
+                goAnotherActivity(this, StudentsActivity::class.java)
+            }
         }
         editBtn?.setOnClickListener {
             val edit = modelStudent.editStudent(this,dniEditText.text.toString(), lNameEditText.text.toString(), fNameEditText.text.toString(),gradeEditText.text.toString(),)
-
+            if(edit){
+                Toast.makeText(this, "SAlumno Actualizado",Toast.LENGTH_LONG).show()
+                goAnotherActivity(this, StudentsActivity::class.java)
+            }
         }
-        deleteBtn?.setOnClickListener { Log.d("eddit","delete")}
+        deleteBtn?.setOnClickListener {
+            val delStudent = modelStudent.deleteStudent(this, dniEditText.text.toString())
+            if(delStudent){
+                Toast.makeText(this, "SAlumno eliminado",Toast.LENGTH_LONG).show()
+                goAnotherActivity(this, StudentsActivity::class.java)
+            }
+        }
     }
 
 }
