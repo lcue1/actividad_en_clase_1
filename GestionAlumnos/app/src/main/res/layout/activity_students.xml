@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -22,23 +22,35 @@
             <!-- Button aligned to the right -->
             <EditText
                 android:id="@+id/search_edit_text"
-                android:layout_width="0px"
-                android:layout_weight="1"
+                style="@style/edit_text_primary"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_student_hint"
                 android:inputType="number"
                 android:maxLength="10"
-                style="@style/edit_text_primary"
-
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_text_"
+                    style="@style/text_normal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/search_edit_text"
+
+                    />
             <Button
                 android:id="@+id/back_btn"
                 style="@style/btn_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:text="@string/back_btn" />
-        </LinearLayout>
+                android:text="@string/back_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="1in"
@@ -90,13 +102,13 @@
 
                 <Button
                     android:id="@+id/grade_10_btn"
-                    style="@style/btn_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/student_has_10"
                     app:layout_constraintTop_toBottomOf="@id/failed_student_btn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/btn_10"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

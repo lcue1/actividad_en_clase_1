@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     private lateinit var studentBtn:Button
     private lateinit var addStudentBtn:Button
-    private lateinit var searchStudentBtn:Button
+    private lateinit var exitBtn:Button
     val modelStudent=ModelStudent()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +32,13 @@ class MainActivity : AppCompatActivity() {
     private fun setButtonsListeners() {
         studentBtn.setOnClickListener { goAnotherActivity(this,StudentsActivity::class.java) }
         addStudentBtn.setOnClickListener {
-
           //  val save = modelStudent.addStudentData(this,"12345678", "Smith", "John", "6",)
             goAnotherActivity(this,EditDeleteStudentActivity::class.java)
+        }
+
+        exitBtn.setOnClickListener {
+            moveTaskToBack(true) // Moves the app to the background
+            finish() // Closes the current activity
 
         }
 
@@ -44,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     private fun initAtributes() {
         studentBtn=findViewById(R.id.student_btn)
         addStudentBtn=findViewById(R.id.add_student_btn)
-        searchStudentBtn=findViewById(R.id.search_student_btn)
+        exitBtn=findViewById(R.id.exit_btn)
     }
 
 

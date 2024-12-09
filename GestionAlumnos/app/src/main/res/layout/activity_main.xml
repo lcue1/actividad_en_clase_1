@@ -38,11 +38,11 @@
 
 
         <Button
-            android:id="@+id/search_student_btn"
+            android:id="@+id/exit_btn"
             style="@style/btn_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/search__student_btn"
+            android:text="@string/exit_btn"
             android:layout_marginTop="48dp"/>
     </LinearLayout>
 
