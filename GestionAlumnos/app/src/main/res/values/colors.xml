@@ -10,6 +10,9 @@
     <color name="text_color_1">#FFFFFF</color>
     <color name="text_color_2">#ED8334</color>
     <color name="red">#FF6C63</color>
+    <color name="green">#8BC34A</color>
+    <color name="gold">#FFD700</color>
+    <color name="blue">#03A9F4</color>
 
 
 </resources>

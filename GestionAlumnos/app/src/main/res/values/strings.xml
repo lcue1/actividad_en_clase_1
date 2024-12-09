@@ -10,8 +10,12 @@
     <!--Multiple activities -->
     <string name="back_btn">&lt;</string>
     <!-- Students activity -->
+    <string name="search_student_hint">Buscar alumno DNI</string>
     <string name="title_stududents_activityy">Alumnos</string>
-    <!--Edit delete activity -->
+    <string name="all_students_btn">All </string>    \
+    <string name="passed_btn">(✓) </string>    \
+    <string name="failed_btn">X!</string>
+    <string name="student_has_10">10</string>
     <string name="dni_hint">DNI</string>
     <string name="last_name_hint">Apellido</string>
     <string name="first_name_hint">Nombre</string>

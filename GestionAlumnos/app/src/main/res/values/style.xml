@@ -19,6 +19,18 @@
         <item name="android:backgroundTint">@color/bg_btn</item>
         <item name="android:textColor">@color/text_color_1</item>
     </style>
+    <style name="btn_all_students" parent="btn_primary">
+        <item name="android:backgroundTint">@color/blue</item>
+    </style>
+    <style name="btn_pased" parent="btn_primary">
+        <item name="android:backgroundTint">@color/green</item>
+    </style>
+    <style name="btn_failed" parent="btn_primary">
+        <item name="android:backgroundTint">@color/red</item>
+    </style>
+    <style name="btn_10" parent="btn_primary">
+        <item name="android:backgroundTint">@color/gold</item>
+    </style>
 
 
     <!-- TextFields -->

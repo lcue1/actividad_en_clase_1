@@ -9,34 +9,35 @@
 
     <!-- Main content in a LinearLayout -->
     <LinearLayout
+        style="@style/layouts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        style="@style/layouts">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- TextView aligned to the left -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/title_stududents_activityy"
-                style="@style/text_title"
-                android:layout_marginStart="30dp"
-                android:layout_weight="1" />
-
             <!-- Button aligned to the right -->
+            <EditText
+                android:id="@+id/search_edit_text"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_student_hint"
+                android:inputType="number"
+                android:maxLength="10"
+                style="@style/edit_text_primary"
+
+                />
             <Button
                 android:id="@+id/back_btn"
+                style="@style/btn_primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/back_btn"
                 android:layout_marginEnd="30dp"
-                style="@style/btn_primary"
-                />
+                android:text="@string/back_btn" />
         </LinearLayout>
 
         <View
@@ -45,13 +46,68 @@
             android:background="@color/white"
             tools:ignore="InOrMmUsage" />
 
-        <GridLayout
-            android:id="@+id/gridStudents"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnCount="5"
-            android:layout_marginTop="20dp" />
-    </LinearLayout>
+            android:orientation="horizontal">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginRight="20dp"
+                >
+
+                <Button
+                    android:id="@+id/all_students_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_students_btn"
+                    style="@style/btn_all_students"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    />
+                <Button
+                    android:id="@+id/pased_student_btn"
+                    style="@style/btn_pased"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/passed_btn"
+                    app:layout_constraintTop_toBottomOf="@id/all_students_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/failed_student_btn"
+                    />
+
+                <Button
+                    android:id="@+id/failed_student_btn"
+                    style="@style/btn_failed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/failed_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pased_student_btn"
+                    app:layout_constraintBottom_toBottomOf="@id/grade_10_btn" />
+
+                <Button
+                    android:id="@+id/grade_10_btn"
+                    style="@style/btn_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/student_has_10"
+                    app:layout_constraintTop_toBottomOf="@id/failed_student_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <GridLayout
+                android:id="@+id/gridStudents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:columnCount="5" />
+        </LinearLayout>
+        </LinearLayout>
 
     <!-- Button fixed at the bottom-right corner -->
     <Button
