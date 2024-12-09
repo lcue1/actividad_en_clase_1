@@ -55,7 +55,7 @@ class StudentsActivity : AppCompatActivity() {
             val textView = TextView(this).apply {
                 text = title
                 textSize = 18f
-                setPadding(80, 16, 80, 16)
+                setPadding(20, 16, 20, 16)
                 setTextColor(Color.WHITE)
                 layoutParams = GridLayout.LayoutParams().apply {
                     rowSpec = GridLayout.spec(0) // First row for titles
@@ -75,7 +75,7 @@ class StudentsActivity : AppCompatActivity() {
                 val textView = TextView(this).apply {
                     text = cell
                     textSize = 16f
-                    setPadding(80, 25, 80, 25)
+                    setPadding(20, 25, 20, 25)
                     setTextColor(Color.WHITE)
                     layoutParams = GridLayout.LayoutParams().apply {
                         rowSpec = GridLayout.spec(rowIndex + 1) // Rows start at 1
