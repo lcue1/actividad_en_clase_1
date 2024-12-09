@@ -2,7 +2,7 @@
     <string name="app_name">GestionAlumnos</string>
 
     <!-- Main activity -->
-    <string name="title_main_activity">Gestion de alumnos</string>
+    <string name="title_main_activity">Gestión de alumnos</string>
     <string name="student_btn">Alumnos</string>
     <string name="add_student_btn">Agregar</string>
     <string name="del_student_btn">Eliminar</string>
